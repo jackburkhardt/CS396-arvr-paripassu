@@ -174,7 +174,7 @@ Vue.component("obj-world", {
 	template: `
 	<a-entity>
 		<!--------- SKYBOX --------->
-		<a-sky src="https://cdn.glitch.global/d20a7652-3c7e-4206-bad8-faa8da1c54f7/sky-sunset.png?v=1654636663140"></a-sky>
+		<a-sky src="#sky"></a-sky>
 
 		<a-plane 
 			roughness="1"
@@ -212,6 +212,8 @@ Vue.component("obj-world", {
 	    src="#palm-obj"
 	    mtl="#palm-mtl"></a-obj-model>
 
+		<a-obj-model src="#stage">
+		</a-obj-model>
 		
 
 		<a-box 
