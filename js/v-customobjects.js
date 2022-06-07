@@ -174,7 +174,7 @@ Vue.component("obj-world", {
 	template: `
 	<a-entity>
 		<!--------- SKYBOX --------->
-		<a-sky color="lightblue"></a-sky>
+		<a-sky src="https://cdn.glitch.global/d20a7652-3c7e-4206-bad8-faa8da1c54f7/sky-sunset.png?v=1654636663140"></a-sky>
 
 		<a-plane 
 			roughness="1"
@@ -195,21 +195,22 @@ Vue.component("obj-world", {
 			<a-entity id="directionaltarget" position="-10 0 -20"></a-entity>
 		</a-light>
 
-		<a-cone 
-			v-for="(tree,index) in trees"
-			:key="'tree' + index"
-			shadow 
+		<a-obj-model
+		v-for="(tree,index) in trees"
+		:key="'tree' + index"
+	 	shadow 
 
-			:color="tree.color.toHex()"
-			:base-radius="tree.size.z" 
-			:height="tree.size.y" 
+		:color="tree.color.toHex()"
+		:base-radius="tree.size.z" 
+		:height="tree.size.y" 
 
-			segments-radial=10
-			segments-height=1
+		segments-radial=10
+		segments-height=0
 			
-			:rotation="tree.rotation.toAFrame()"
-			:position="tree.position.toAFrame()">
-		</a-cone>
+		:rotation="tree.rotation.toAFrame()"
+		:position="tree.position.toAFrame()"
+	    src="#palm-obj"
+	    mtl="#palm-mtl"></a-obj-model>
 
 		
 
@@ -253,7 +254,7 @@ Vue.component("obj-world", {
 			})
 			let r = 20 + 10*noise(i*40)
 			let theta = 2*noise(i*10)
-			tree.position.setToCylindrical(r, theta, h/2)
+			tree.position.setToCylindrical(r, theta, h/8)
 			tree.lookAt(0,1,0)
 			trees.push(tree)
 		}
