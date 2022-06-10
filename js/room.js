@@ -11,7 +11,7 @@
 class Room {
 	constructor() {
 		this.tempDisplayName = params.name || words.getUserName()
-		this.setID(params.room || "test")
+		this.setID(params.room || "Dillo Day 2022")
 		
 		// Update loop runs regardless of roomID
 		// Initialize an update loop
